@@ -11,13 +11,13 @@
                     
                         <legend>File Selection</legend>
                             <h1>Select File:</h1>
-                            <input type="file" name="myFile"/>
+                            <input type="file" name="myFile" id="myFile"/>
                             <h1>Enter Name of Company</h1>
-                            <input type="text" name="companyName"/>
+                            <input type="text" name="companyName" id="companyName"/>
                             <h1>Enter Department name</h1>
-                            <input type="text" name"dptName">
+                            <input type="text" name="dptName" id="dptName">
                             <br><br>
-                            <button type="submit" onclick="uploadFile(compnyName,dptName)"/>
+                            <button type="submit" onclick="uploadFile(companyName,dptName)"/>
                                  
                 
             </div>
@@ -37,7 +37,7 @@
             authDomain: "chat2brandbroadcastlist.firebaseapp.com",
             databaseURL: "https://chat2brandbroadcastlist.firebaseio.com",
             projectId: "chat2brandbroadcastlist",
-            storageBucket: "gs://chat2brandbroadcastlist.appspot.com",
+            storageBucket: "chat2brandbroadcastlist.appspot.com",
             messagingSenderId: "265863737153"
         };
         firebase.initializeApp(config);
