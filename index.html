@@ -54,7 +54,7 @@ $("#file").on("change",function(event){
 });
 
 //uploadfile
-function uploadFile(companyName,dptName){
+function uploadFile(a,b){
     var filename =selectedFile.name;
     var storageRef=firebase.storage().ref('/'+companyName+'/'+dptName+'/'+filename);
     var uploadTask=storageRef.put(selectedFile);
