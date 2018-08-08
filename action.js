@@ -1,9 +1,9 @@
 var selectedFile;
 
 //save selected file 
-$("#file").on("change",function(event){
+$("file").on("change",function(event){
     selectedFile=event.target.files[0];
-    $("#uploadButton").show();
+    
 });
 
 //uploadfile
