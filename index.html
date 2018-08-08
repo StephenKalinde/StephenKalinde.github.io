@@ -17,7 +17,7 @@
                             <h1>Enter Department name</h1>
                             <input type="text" name"dptName">
                             <br><br>
-                            <input type="submit" onclick="uploadFile(companyName,dptName)"/>
+                            <button type="submit" onclick="uploadFile(compnyName,dptName)"/>
                                  
                 
             </div>
@@ -50,7 +50,7 @@
 //save selected file 
 $("#file").on("change",function(event){
     selectedFile=event.target.files[0];
-    $("#uploadButton").show();
+   // $("#uploadButton").show();
 });
 
 //uploadfile
