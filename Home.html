@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <script type="text/javascript" src="/action.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-messaging.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-functions.js"></script>
+            
+            <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyBeUP6UMYdTGdGueNbdQWTyc0EbSY93llo",
+                authDomain: "chat2brandbroadcastlist.firebaseapp.com",
+                databaseURL: "https://chat2brandbroadcastlist.firebaseio.com",
+                projectId: "chat2brandbroadcastlist",
+                storageBucket: "chat2brandbroadcastlist.appspot.com",
+                messagingSenderId: "265863737153"
+            };
+            firebase.initializeApp(config);
+        
+            var storage = firebase.storage();
+            var storageRef=storage.ref();
+        
+            var file = myFile; // use the Blob or File API
+            storageRef.put(file).then(function(snapshot) {
+            console.log('Uploaded a file!');
+        });
+        
+            </script>
+    </head>>
+    <body>
+        <div class="file-selection-container">
+            <div class="file-selecter">
+                <form action="/action.js">
+                    <fieldset>
+                        <legend>File Selection</legend>
+                            <h1>Select File:</h1>
+                            <input type="file" name="myFile"/>
+                            <h1>Enter Name of Company</h1>
+                            <input type="text" name="companyName"/>
+                            <h1>Enter Department name</h1>
+                            <input type="text" name"dptName">
+                            <br><br>
+                            <input type="submit" onclick="uploadFile(companyName,dptName)"/>
+                    </fieldset>               
+                </form>
+            </div>
+        </div>
+    </body>
+
+    
+   
+</html>
