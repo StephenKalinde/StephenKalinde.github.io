@@ -20,13 +20,39 @@
                 messagingSenderId: "265863737153"
             };
             firebase.initializeApp(config);
+
+            var selectedFile;
+
+//save selected file 
+$("#file").on("change",function(event){
+    selectedFile=event.target.files[0];
+    $("#uploadButton").show();
+});
+
+//uploadfile
+function uploadFile(companyName,dptName){
+    var filename =selectedFile.name;
+    var storageRef=firebase.storage().ref('/'+companyName+'/'+dptName+'/'+filename);
+    var uploadTask=storageRef.put(selectedFile);
+
+    uploadTask.on('state_changed', function(snapshot){
+
+    },function (error) {
         
-            var storage = firebase.storage();
-            var storageRef=storage.ref();
+    },function () {
+        var downloadURL= uploadTask.snapshot.downloadURL;
+        console.log(downloadURL);
+
+    });
+
+}
         
-            var file = myFile; // use the Blob or File API
-            storageRef.put(file).then(function(snapshot) {
-            console.log('Uploaded a file!');
+           // var storage = firebase.storage();
+            //var storageRef=storage.ref();
+        
+           // var file = myFile; // use the Blob or File API
+           // storageRef.put(file).then(function(snapshot) {
+           // console.log('Uploaded a file!');
         });
         
             </script>
