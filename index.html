@@ -11,13 +11,15 @@
                     
                         <legend>File Selection</legend>
                             <h1>Select File:</h1>
-                            <input type="file" name="myFile" id="myFile"/>
+                            <label>
+                            <input type="file" name id="file"/>
+                            </label>>
                             <h1>Enter Name of Company</h1>
-                            <input type="text" name="companyName" id="companyName"/>
+                            <input type="text"  id="companyName"/>
                             <h1>Enter Department name</h1>
-                            <input type="text" name="dptName" id="dptName">
+                            <input type="text" id="dptName">
                             <br><br>
-                            <button type="submit" onclick="uploadFile(companyName,dptName)"/>
+                            <button type="button" onclick="uploadFile(companyName,dptName)"/>
                                  
                 
             </div>
@@ -48,15 +50,15 @@
             var selectedFile;
 
 //save selected file 
-//$("#file").on("change",function(event){
-    //selectedFile=event.target.files[0];
+$("#file").on("change",function(event){
+    selectedFile=event.target.files[0];
    // $("#uploadButton").show();
-//});
+ });
 
 //uploadfile
 function uploadFile(a,b){
     var filename =selectedFile.name;
-    var storageRef=firebase.storage().ref('/'+companyName+'/'+dptName+'/'+filename);
+    var storageRef=firebase.storage().ref('/'+a+'/'+b+'/'+filename);
     var uploadTask=storageRef.put(selectedFile);
 
     uploadTask.on('state_changed', function(snapshot){

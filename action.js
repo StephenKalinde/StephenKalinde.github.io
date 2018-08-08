@@ -7,9 +7,9 @@ var selectedFile;
 //});
 
 //uploadfile
-function uploadFile(companyName,dptName){
+function uploadFile(a,b){
     var filename =selectedFile.name;
-    var storageRef=firebase.storage().ref('/'+companyName+'/'+dptName+'/'+filename);
+    var storageRef=firebase.storage().ref('/'+a+'/'+b+'/'+filename);
     var uploadTask=storageRef.put(selectedFile);
 
     uploadTask.on('state_changed', function(snapshot){
