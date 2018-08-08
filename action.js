@@ -1,7 +1,7 @@
 var selectedFile;
 
 //save selected file 
-$("file").on("change",function(event){
+$("myFile").on("change",function(event){
     selectedFile=event.target.files[0];
     
 });
