@@ -2,7 +2,29 @@
 <html>
     <head>
             <script type="text/javascript" src="/action.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+            
+    </head>
+    <body>
+        <div class="file-selection-container">
+            <div class="file-selecter">
+                <form action="/action.js">
+                    <fieldset>
+                        <legend>File Selection</legend>
+                            <h1>Select File:</h1>
+                            <input type="file" name="myFile"/>
+                            <h1>Enter Name of Company</h1>
+                            <input type="text" name="companyName"/>
+                            <h1>Enter Department name</h1>
+                            <input type="text" name"dptName">
+                            <br><br>
+                            <input type="submit" onclick="uploadFile(companyName,dptName)"/>
+                    </fieldset>               
+                </form>
+            </div>
+        </div>
+    </body>
+
+    <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
             <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
             <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script>
             <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>
@@ -21,62 +43,6 @@
             };
             firebase.initializeApp(config);
 
-            var selectedFile;
-
-//save selected file 
-$("#file").on("change",function(event){
-    selectedFile=event.target.files[0];
-    $("#uploadButton").show();
-});
-
-//uploadfile
-function uploadFile(companyName,dptName){
-    var filename =selectedFile.name;
-    var storageRef=firebase.storage().ref('/'+companyName+'/'+dptName+'/'+filename);
-    var uploadTask=storageRef.put(selectedFile);
-
-    uploadTask.on('state_changed', function(snapshot){
-
-    },function (error) {
-        
-    },function () {
-        var downloadURL= uploadTask.snapshot.downloadURL;
-        console.log(downloadURL);
-
-    });
-
-}
-        
-           // var storage = firebase.storage();
-            //var storageRef=storage.ref();
-        
-           // var file = myFile; // use the Blob or File API
-           // storageRef.put(file).then(function(snapshot) {
-           // console.log('Uploaded a file!');
-        });
-        
             </script>
-    </head>
-    <body>
-        <div class="file-selection-container">
-            <div class="file-selecter">
-                <form>
-                    <fieldset>
-                        <legend>File Selection</legend>
-                            <h1>Select File:</h1>
-                            <input type="file" name="myFile"/>
-                            <h1>Enter Name of Company</h1>
-                            <input type="text" name="companyName"/>
-                            <h1>Enter Department name</h1>
-                            <input type="text" name"dptName">
-                            <br><br>
-                            <input type="submit" onclick="uploadFile(companyName,dptName)"/>
-                    </fieldset>               
-                </form>
-            </div>
-        </div>
-    </body>
-
-    
    
 </html>
