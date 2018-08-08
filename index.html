@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head>
-            <script type="text/javascript" src="/action.js"></script>
-            
-    </head>
+
     <body>
         <div class="file-selection-container">
             <div class="file-selecter">
@@ -26,12 +23,8 @@
         </div>
 
         <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-messaging.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-functions.js"></script>
-        <script src="action.js"></script>
+       
+        
         
         <script>
         // Initialize Firebase
@@ -44,8 +37,16 @@
             messagingSenderId: "265863737153"
         };
         firebase.initializeApp(config);
-
         </script>
+
+        <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-messaging.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-functions.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.3.0/init.js"></script>
+
+        <script src="action.js"></script>
 
         <script>
             var selectedFile;
