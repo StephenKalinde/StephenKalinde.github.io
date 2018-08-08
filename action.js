@@ -1,15 +1,15 @@
 var selectedFile;
 
 //save selected file 
-//$("#myFile").on("change",function(event){
-  //  selectedFile=event.target.files[0];
+$("#file").on("change",function(event){
+    selectedFile=event.target.files[0];
     
-//});
+});
 
 //uploadfile
-function uploadFile(a,b){
+function uploadFile(){
     var filename =selectedFile.name;
-    var storageRef=firebase.storage().ref('/'+a+'/'+b+'/'+filename);
+    var storageRef=firebase.storage().ref('/Chat2Brand/'+filename);
     var uploadTask=storageRef.put(selectedFile);
 
     uploadTask.on('state_changed', function(snapshot){

@@ -19,7 +19,7 @@
                             <h1>Enter Department name</h1>
                             <input type="text" id="dptName">
                             <br><br>
-                            <button type="button" onclick="uploadFile(companyName,dptName)"/>
+                            <button type="button" onclick="uploadFile()"/>
                                  
                 
             </div>
@@ -56,9 +56,9 @@ $("#file").on("change",function(event){
  });
 
 //uploadfile
-function uploadFile(a,b){
+function uploadFile(){
     var filename =selectedFile.name;
-    var storageRef=firebase.storage().ref('/'+a+'/'+b+'/'+filename);
+    var storageRef=firebase.storage().ref('/Chat2Brand/'+filename);
     var uploadTask=storageRef.put(selectedFile);
 
     uploadTask.on('state_changed', function(snapshot){
