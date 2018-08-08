@@ -62,16 +62,13 @@ function uploadFile(){
     var filename =selectedFile.name;
     var storageRef=firebase.storage().ref('/Chat2Brand/'+filename);
     var uploadTask=storageRef.put(selectedFile);
-
-    uploadTask.on('state_changed', function(snapshot){
-
-    },function (error) {
-        
-    },function () {
-        var downloadURL= uploadTask.snapshot.downloadURL;
-        console.log(downloadURL);
-
-    });
+    uploadTask
+    .then(snapshot => snapshot.ref.getDownloadURL())
+  .then((url) => {
+    console.log(url);
+    document.querySelector('#someImageTagID').src = url;
+  })
+  .catch(console.error);
 
 }
         </script>
