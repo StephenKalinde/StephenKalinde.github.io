@@ -1,10 +1,10 @@
 var selectedFile;
 
 //save selected file 
-$("#myFile").on("change",function(event){
-    selectedFile=event.target.files[0];
+//$("#myFile").on("change",function(event){
+  //  selectedFile=event.target.files[0];
     
-});
+//});
 
 //uploadfile
 function uploadFile(companyName,dptName){
