@@ -60,14 +60,17 @@ $("#file").on("change",function(event){
 //uploadfile
 function uploadFile(){
     var filename =selectedFile.name;
-    var storageRef=firebase.storage().ref('/Chat2Brand/'+filename);
+    var storageRef=firebase.storage().ref().child('/Chat2Brand/'+filename);
     var uploadTask=storageRef.put(selectedFile);
     uploadTask
-    .then(snapshot => snapshot.ref.getDownloadURL())
-  .then((url) => {
-    console.log(url);
-    document.querySelector('#someImageTagID').src = url;
-  })
+    .then(function(snapshot){
+        console.log("Upload Task complete. URL: "+url);
+    })
+    //.then(snapshot => snapshot.ref.getDownloadURL())
+  //.then((url) => {
+    //console.log(url);
+   // document.querySelector('#someImageTagID').src = url;
+  //})
   .catch(console.error);
 
 }
