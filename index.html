@@ -12,11 +12,11 @@
                             <input type="file" id="file" name ="file"/>
                             </label>
                             <h1>Enter Name of Company</h1>
-                            <input type="text"  id="companyName"/>
+                            <input type="text"  id="companyName" name="companyName"/>
                             <h1>Enter Department name</h1>
-                            <input type="text" id="dptName">
+                            <input type="text" id="dptName" name ="dptName">
                             <br><br>
-                            <button type="button" onclick="uploadFile()"/>
+                            <button type="button" id="btn"  name="btn" onclick="uploadFile()"/>
                                  
                 
             </div>
@@ -40,13 +40,48 @@
             messagingSenderId: "265863737153"
         };
         firebase.initializeApp(config);
+
+        var uploadbtn= document.getElementById("btn");
+        var filebtn=document.getElementById("file");
+
+        //listen for file selection
+
+        filebtn.addEventListener('change',function(e){
+
+            //get file 
+            var file =e.target.files[0];
+
+            //ref
+            var storageReference= firebase.storage.ref("chat2brand/"+ file.name);
+
+            //upload
+            var task= storageReference.put(file);
+
+           // task.on('state_changed',
+
+               // function progress(snapshot){
+                   // var percentage=(snapshot.bytesTransferred/snapshot.totalBytes)*100;
+                   // uploadbtn.value=percentage;
+               // },
+
+                //function error(err){
+
+               // },
+
+               // function complete(){
+
+               // }
+            
+           // );
+
+        });
         </script>
        <script> 
 //save selected file 
-$("#file").on("change",function(event){
-    selectedFile=event.target.files[0];
+//$("#file").on("change",function(event){
+  //  selectedFile=event.target.files[0];
    // $("#uploadButton").show();
- });
+ //});
 
 //uploadfile
 function uploadFile(){
