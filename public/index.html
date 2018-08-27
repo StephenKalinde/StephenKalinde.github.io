@@ -6,23 +6,26 @@
             <div class="file-selecter">
                 
                     
-                        <legend>Fillllllll Selection</legend>
+                        <legend>File Selection</legend>
                             <h1>Select File:</h1>
-                            <label>
-                            <input type="file" id="file" name ="file"/>
-                            </label>
+                            
+                            <input type="file" id="file"/>
+                            
                             <h1>Enter Name of Company</h1>
                             <input type="text"  id="companyName" name="companyName"/>
                             <h1>Enter Department name</h1>
                             <input type="text" id="dptName" name ="dptName">
                             <br><br>
-                            <button type="button" id="btn"  name="btn" style="height: 10xp; width:10px ;"/>
+                            <button type="button" id="btn"/>
                                  
                 
             </div>
         </div>
 
-        <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-firestore.js"></script>
+        <script src="/__/firebase/init.js"></script>
      
         
         
@@ -43,27 +46,27 @@
 
         //listen for file selection
 
-        uploadbtn.addEventListener('change',function(e){
+        uploadbtn.addEventListener('click',function(e){
 
             //get file 
-            var file =e.target.files[0];
+            var file= filebtn;
 
             //ref
-            var storageReference= firebase.storage.ref("chat2brand/"+ file.name);
+            var storageReference= firebase.storage.ref().child('chat2brand/lean.jpg');
 
             //upload
             var task= storageReference.put(file);
 
-           // task.on('state_changed',
+            task.on('state_changed',
 
-               // function progress(snapshot){
-                   // var percentage=(snapshot.bytesTransferred/snapshot.totalBytes)*100;
-                   // uploadbtn.value=percentage;
-               // },
+               function progress(snapshot){
+                    var percentage=(snapshot.bytesTransferred/snapshot.totalBytes)*100;
+                    uploadbtn.value=percentage;
+                },
 
-                //function error(err){
-
-               // },
+                function error(err){
+                    console.log(err);
+               })
 
                // function complete(){
 
